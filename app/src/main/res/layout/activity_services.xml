@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/services"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home"
+    android:background="@color/black">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#141414"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/icon_color_selector"
+        app:itemTextColor="@color/icon_color_selector"
+        app:itemActiveIndicatorStyle="@null"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/nav_menu"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logo"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SERVICES"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="-50dp"
+                    android:src="@drawable/car"
+                    android:scaleType="fitStart"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Custom Paint Jobs"
+                        android:textColor="#FF0000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Custom paint jobs with sleek colors, metallic finishes, and flawless application—stand out and shine! Durable, high-quality finishes that turn heads wherever you go!"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="40dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Full-Body Wraps"
+                        android:textColor="#FF0000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Change your ride's look with high-quality vinyl wraps and decals-bold, sleek, and built to last. Customize with unique designs for a truly one-of-a-kind style."
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="-50dp"
+                    android:src="@drawable/car2"
+                    android:scaleType="fitEnd"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="220dp"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="-30dp"
+                    android:src="@drawable/car5"
+                    android:scaleType="fitStart"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="20dp"
+                    android:paddingBottom="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ceramic Coating and Detailing"
+                        android:textColor="#FF0000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ultimate shine and protection for that fresh-out-the-showroom look. Long-lasting durability keeps your car looking brand new."
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Custome Wheels and Rims"
+                        android:textColor="#FF0000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Turn heads with unique alloy, forged, or carbon-fiber rims. Elevate your style and performance with precision-crafted designs."
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="350dp"
+                    android:layout_marginStart="-50dp"
+                    android:src="@drawable/car4"
+                    android:scaleType="fitEnd"
+                    android:layout_marginBottom="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/fb2"
+                    android:layout_marginLeft="40dp"/>
+
+                <TextView
+                    android:id="@+id/unicossFB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Unicoss Garage"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ig2"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:id="@+id/unicossIG"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="unicossgarage"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="6dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/phone2"
+                    android:layout_marginLeft="45dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1234-5678-901"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/mail2"
+                    android:layout_marginLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="unicoss@gmail.com"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <ImageView
+        android:id="@+id/chatButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/chat_icon"
+        android:layout_margin="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

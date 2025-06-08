@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".Register">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:src="@drawable/unicoss_icon" />
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/container_design"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Sign "
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Up"
+                        android:textColor="#FF0000"
+                        android:textStyle="bold"
+                        android:textSize="30dp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/register_username"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="Username"
+                    android:inputType="text"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/register_email"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp"/>
+
+                <EditText
+                    android:id="@+id/register_phone"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp"/>
+
+                <EditText
+                    android:id="@+id/register_password"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/confirm_password"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/security_question"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="Security Question"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp"
+                    android:drawablePadding="10dp"
+                    android:spinnerMode="dropdown"/>
+
+                <EditText
+                    android:id="@+id/security_answer"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/corner_radius"
+                    android:hint="Answer"
+                    android:inputType="text"
+                    android:padding="13dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/submit_btn"
+                        android:layout_width="100dp"
+                        android:layout_height="33dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/corner_radius"
+                        android:backgroundTint="#FF0000"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:text="Submit"
+                        android:textColor="@color/white" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/back_btn"
+                        android:layout_width="100dp"
+                        android:layout_height="33dp"
+                        android:background="@drawable/corner_radius"
+                        android:backgroundTint="#FF0000"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:text="Back"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

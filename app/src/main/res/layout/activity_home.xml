@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#141414"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/icon_color_selector"
+        app:itemTextColor="@color/icon_color_selector"
+        app:itemActiveIndicatorStyle="@null"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/nav_menu" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:layout_width="330dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginStart="-50dp"
+            android:src="@drawable/car"
+            android:scaleType="fitStart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elevate your ride with premium external customization. From sleek body kits and custom paint jobs to dynamic lighting upgrades and aerodynamic enhancements, we turn your vision into reality. Make a statement on the road with Unicoss Garage."
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="260dp"
+            android:gravity="start"
+            android:layout_marginLeft="200dp"
+            android:padding="16dp"
+            android:maxWidth="200dp" />
+
+        <TextView
+            android:id="@+id/customTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Where style meets innovation."
+            android:textColor="#FD0B0B"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="440dp"
+            android:textStyle="italic"
+            android:gravity="start"
+            android:layout_marginLeft="200dp"
+            android:padding="16dp"
+            android:maxWidth="200dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/seeMoreBtn"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:text="See More"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/more_button"
+            android:textSize="12sp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="490dp" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/chatButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/chat_icon"
+        android:layout_margin="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
