@@ -2,6 +2,7 @@ package com.example.unicossgarage;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.media.Image;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.navigation.NavigationBarView;
 import android.content.Intent;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +30,16 @@ public class Update extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        ImageView chatBotBtn = findViewById(R.id.chatBotBtn);
+
+        chatBotBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Update.this, ChatBot.class);
+                startActivity(intent);
+            }
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);

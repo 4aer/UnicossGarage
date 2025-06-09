@@ -43,7 +43,7 @@ public class ChatBot extends AppCompatActivity {
     private Gson gson;
 
     // Bottom inquiry buttons
-    private Button btnServiceSchedule, btnAvailableServices, btnLocation, btnOthers;
+    private Button btnServiceSchedule, btnModeOfPayment, btnVehicleType, btnLocation, btnOthers;
 
     private boolean isWaitingForOthersInput = false;
 
@@ -72,7 +72,8 @@ public class ChatBot extends AppCompatActivity {
         bottomButtonsContainer = findViewById(R.id.bottomButtonsContainer);
 
         btnServiceSchedule = findViewById(R.id.btnServiceSchedule);
-        btnAvailableServices = findViewById(R.id.btnAvailableServices);
+        btnModeOfPayment = findViewById(R.id.btnModeOfPayment);
+        btnVehicleType = findViewById(R.id.btnVehicleType);
         btnLocation = findViewById(R.id.btnLocation);
         btnOthers = findViewById(R.id.btnOthers);
     }
@@ -106,7 +107,8 @@ public class ChatBot extends AppCompatActivity {
         backButton.setOnClickListener(v -> finish());
 
         btnServiceSchedule.setOnClickListener(v -> handleInquiryClick("Service Schedule"));
-        btnAvailableServices.setOnClickListener(v -> handleInquiryClick("Mode of Payment"));
+        btnModeOfPayment.setOnClickListener(v -> handleInquiryClick("Mode of Payment"));
+        btnVehicleType.setOnClickListener(v -> handleInquiryClick("Accepted Vehicle Type"));
         btnLocation.setOnClickListener(v -> handleInquiryClick("Location"));
         btnOthers.setOnClickListener(v -> handleOthersClick());
     }

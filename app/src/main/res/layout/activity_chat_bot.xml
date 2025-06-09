@@ -74,66 +74,86 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
         android:background="#000000">
-
-        <LinearLayout
-            android:id="@+id/bottomButtonsContainer"
+        
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:gravity="center">
+            android:scrollbars="none"
+            android:fillViewport="true">
 
-            <Button
-                android:id="@+id/btnServiceSchedule"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="4dp"
-                android:text="Service Schedule"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/bottom_button_bg"
-                android:textAllCaps="false" />
+            <LinearLayout
+                android:id="@+id/bottomButtonsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:gravity="center">
+    
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnServiceSchedule"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="Service Schedule"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bottom_button_bg"
+                    android:textAllCaps="false" />
+    
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnModeOfPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="Mode of Payment"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bottom_button_bg"
+                    android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/btnAvailableServices"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:text="Available Services"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/bottom_button_bg"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btnLocation"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:text="Location"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/bottom_button_bg"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btnOthers"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:layout_marginStart="4dp"
-                android:text="Others"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/bottom_button_bg"
-                android:textAllCaps="false" />
-
-        </LinearLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnVehicleType"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="Vehicle Type"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bottom_button_bg"
+                    android:textAllCaps="false" />
+    
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="Location"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bottom_button_bg"
+                    android:textAllCaps="false" />
+    
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnOthers"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:text="Others"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bottom_button_bg"
+                    android:textAllCaps="false" />
+    
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:id="@+id/inputContainer"

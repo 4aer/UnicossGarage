@@ -237,7 +237,7 @@
             </LinearLayout>
     </ScrollView>
     <ImageView
-        android:id="@+id/chatButton"
+        android:id="@+id/chatBotBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/chat_icon"

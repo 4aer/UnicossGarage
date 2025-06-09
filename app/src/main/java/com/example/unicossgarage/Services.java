@@ -12,6 +12,7 @@ import android.view.View;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.navigation.NavigationBarView;
 import android.content.Intent;
+import android.widget.ImageView;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -34,6 +35,15 @@ public class Services extends AppCompatActivity {
 
         TextView unicossFB = findViewById(R.id.unicossFB);
         TextView unicossIG = findViewById(R.id.unicossIG);
+        ImageView chatBotBtn = findViewById(R.id.chatBotBtn);
+
+        chatBotBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Services.this, ChatBot.class);
+                startActivity(intent);
+            }
+        });
 
         unicossFB.setOnClickListener(new View.OnClickListener() {
             @Override

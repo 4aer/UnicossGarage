@@ -10,6 +10,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.navigation.NavigationBarView;
 import android.content.Intent;
+import android.view.View;
+import android.widget.ImageView;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,16 @@ public class billing_summary extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        ImageView chatBotBtn = findViewById(R.id.chatBotBtn);
+
+        chatBotBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(billing_summary.this, ChatBot.class);
+                startActivity(intent);
+            }
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -66,7 +78,7 @@ public class billing_summary extends AppCompatActivity {
         builder.setTitle("Logout");
         builder.setMessage("Do you want to log out?");
 
-        // Add the Yes button
+        // Yes button
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -78,20 +90,17 @@ public class billing_summary extends AppCompatActivity {
             }
         });
 
-        // Add the No button
+        // No button
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // User canceled logout
                 dialog.dismiss();
 
-                // Reset the selected navigation item
                 BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
                 bottomNavigationView.setSelectedItemId(R.id.nav_summary);
             }
         });
 
-        // Create and show the AlertDialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
