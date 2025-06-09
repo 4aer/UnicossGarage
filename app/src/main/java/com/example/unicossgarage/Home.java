@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import android.view.View;
+import android.widget.ImageView;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.navigation.NavigationBarView;
 import android.content.Intent;
@@ -32,11 +33,20 @@ public class Home extends AppCompatActivity {
         });
 
         Button seeMoreBtn = findViewById(R.id.seeMoreBtn);
+        ImageView chatBotBtn = findViewById(R.id.chatBotBtn);
 
         seeMoreBtn.setOnClickListener(new View.OnClickListener () {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Services.class);
+                startActivity(intent);
+            }
+        });
+
+        chatBotBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, ChatBot.class);
                 startActivity(intent);
             }
         });
