@@ -34,7 +34,7 @@
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/user_profile_circle_bg"
+            android:background="@drawable/chatbot_user"
             android:contentDescription="User Profile" />
 
     </LinearLayout>
