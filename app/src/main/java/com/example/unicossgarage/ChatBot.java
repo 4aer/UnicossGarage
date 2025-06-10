@@ -229,7 +229,7 @@ public class ChatBot extends AppCompatActivity {
             botResponse = "Thank you for sharing your inquiry. It will be reviewed by our admins.";
             isWaitingForOthersInput = false;
         } else {
-            botResponse = "Please choose one of the inquiries indicated above.";
+            botResponse = "Please choose one of the inquiries indicated below.";
         }
 
         new Handler().postDelayed(() -> {
