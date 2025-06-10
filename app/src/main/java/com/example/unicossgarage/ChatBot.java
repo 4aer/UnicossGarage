@@ -1,6 +1,7 @@
 package com.example.unicossgarage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,10 +38,11 @@ public class ChatBot extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "ChatBotPrefs";
-    private static final String MESSAGES_KEY = "chat_messages";
+    private String MESSAGES_KEY; // Now dynamic based on user
 
     private List<ChatMessage> chatMessages;
     private Gson gson;
+    private String currentUsername; // Store current logged-in user
 
     // Bottom inquiry buttons
     private Button btnServiceSchedule, btnModeOfPayment, btnVehicleType, btnLocation, btnOthers;
@@ -52,6 +54,17 @@ public class ChatBot extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_bot);
 
+        // Get current username from Intent or SharedPreferences
+        getCurrentUser();
+
+        if (currentUsername == null) {
+            // If no user is logged in, redirect to login
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         initializeViews();
         setupSharedPreferences();
         loadChatHistory();
@@ -60,6 +73,23 @@ public class ChatBot extends AppCompatActivity {
         // Show initial greeting if no messages exist
         if (chatMessages.isEmpty()) {
             showInitialGreeting();
+        }
+    }
+
+    private void getCurrentUser() {
+        // First try to get from Intent (if passed from login/register)
+        currentUsername = getIntent().getStringExtra("username");
+
+        // If not found in Intent, try to get from SharedPreferences (current session)
+        if (currentUsername == null) {
+            SharedPreferences sessionPrefs = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
+            currentUsername = sessionPrefs.getString("current_user", null);
+        }
+
+        // If we have a username, make sure it's stored in session
+        if (currentUsername != null) {
+            SharedPreferences sessionPrefs = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
+            sessionPrefs.edit().putString("current_user", currentUsername).apply();
         }
     }
 
@@ -82,6 +112,9 @@ public class ChatBot extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         gson = new Gson();
         chatMessages = new ArrayList<>();
+
+        // Create user-specific key for chat messages
+        MESSAGES_KEY = "chat_messages_" + currentUsername;
     }
 
     private void loadChatHistory() {
@@ -111,6 +144,13 @@ public class ChatBot extends AppCompatActivity {
         btnVehicleType.setOnClickListener(v -> handleInquiryClick("Accepted Vehicle Type"));
         btnLocation.setOnClickListener(v -> handleInquiryClick("Location"));
         btnOthers.setOnClickListener(v -> handleOthersClick());
+    }
+
+    // Add method to clear chat history (useful for logout)
+    public void clearChatHistory() {
+        chatMessages.clear();
+        sharedPreferences.edit().remove(MESSAGES_KEY).apply();
+        chatContainer.removeAllViews();
     }
 
     private void showInitialGreeting() {
@@ -173,7 +213,7 @@ public class ChatBot extends AppCompatActivity {
         displayMessage(userMessage, true);
 
         new Handler().postDelayed(() -> {
-            String botResponse = "Please describe your issue, and we will respond to you as soon as possible.";
+            String botResponse = "Please state your inquiry, and we will respond to you as soon as possible.";
             ChatMessage botMessage = new ChatMessage(botResponse, false, getCurrentTimestamp());
             addMessageAndSave(botMessage);
             displayMessage(botMessage, true);

@@ -71,18 +71,28 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+                // Check default credentials first
                 if (enteredUsername.equals(DEFAULT_USERNAME) && enteredPassword.equals(DEFAULT_PASSWORD)) {
+                    // Set current user session for default user
+                    setCurrentUserSession(DEFAULT_USERNAME);
+
                     Intent intent = new Intent(MainActivity.this, Home.class);
+                    intent.putExtra("username", DEFAULT_USERNAME);
                     startActivity(intent);
                     finish();
                     return;
                 }
 
+                // Check registered user credentials
                 SharedPreferences preferences = getSharedPreferences("UserCredentials", MODE_PRIVATE);
                 String storedPassword = preferences.getString(enteredUsername, null);
 
                 if (storedPassword != null && storedPassword.equals(enteredPassword)) {
+                    // Set current user session for registered user
+                    setCurrentUserSession(enteredUsername);
+
                     Intent intent = new Intent(MainActivity.this, Home.class);
+                    intent.putExtra("username", enteredUsername);
                     startActivity(intent);
                     finish();
                 } else {
@@ -106,5 +116,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setCurrentUserSession(String username) {
+        SharedPreferences sessionPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+        sessionPrefs.edit().putString("current_user", username).apply();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // clear any existing session when returning to login page
+        // users must log in again if they return to this activity
+        clearUserSession();
+    }
+
+    private void clearUserSession() {
+        SharedPreferences sessionPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+        sessionPrefs.edit().clear().apply();
     }
 }

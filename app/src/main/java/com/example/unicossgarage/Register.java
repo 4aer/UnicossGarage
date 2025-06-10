@@ -101,9 +101,15 @@ public class Register extends AppCompatActivity {
                 editor.putString("user_" + username + "_answer", answer.toLowerCase()); // store security answer (lowercase for case-insensitive comparison)
                 editor.apply();
 
+                // Set current user session
+                SharedPreferences sessionPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+                sessionPrefs.edit().putString("current_user", username).apply();
+
                 Toast.makeText(Register.this, "Registration successful", Toast.LENGTH_SHORT).show();
 
+                // Pass username to next activity (if going to home screen or wherever)
                 Intent intent = new Intent(Register.this, MainActivity.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
             }

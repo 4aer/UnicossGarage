@@ -2,6 +2,7 @@ package com.example.unicossgarage;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class billing_summary extends AppCompatActivity {
+
+    private String currentUsername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +35,18 @@ public class billing_summary extends AppCompatActivity {
             return insets;
         });
 
+        getCurrentUser();
+
         ImageView chatBotBtn = findViewById(R.id.chatBotBtn);
 
         chatBotBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(billing_summary.this, ChatBot.class);
+                // Pass username to ChatBot for user-specific chat history
+                if (currentUsername != null) {
+                    intent.putExtra("username", currentUsername);
+                }
                 startActivity(intent);
             }
         });
@@ -49,16 +59,25 @@ public class billing_summary extends AppCompatActivity {
 
                 if (itemId == R.id.nav_home) {
                     Intent intent = new Intent(billing_summary.this, Home.class);
+                    if (currentUsername != null) {
+                        intent.putExtra("username", currentUsername);
+                    }
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.nav_update) {
                     Intent intent = new Intent(billing_summary.this, Update.class);
+                    if (currentUsername != null) {
+                        intent.putExtra("username", currentUsername);
+                    }
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.nav_summary) {
                     return true;
                 } else if (itemId == R.id.nav_services) {
                     Intent intent = new Intent(billing_summary.this, Services.class);
+                    if (currentUsername != null) {
+                        intent.putExtra("username", currentUsername);
+                    }
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.nav_logout) {
@@ -73,6 +92,23 @@ public class billing_summary extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.nav_summary);
     }
 
+    private void getCurrentUser() {
+        // First try to get from Intent (if passed from another activity)
+        currentUsername = getIntent().getStringExtra("username");
+
+        // If not found in Intent, try to get from SharedPreferences (current session)
+        if (currentUsername == null) {
+            SharedPreferences sessionPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+            currentUsername = sessionPrefs.getString("current_user", null);
+        }
+
+        // If we have a username, make sure it's stored in session
+        if (currentUsername != null) {
+            SharedPreferences sessionPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+            sessionPrefs.edit().putString("current_user", currentUsername).apply();
+        }
+    }
+
     private void showLogoutConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Logout");
@@ -82,6 +118,8 @@ public class billing_summary extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                clearUserSession();
+
                 // User confirmed logout
                 Intent homeIntent = new Intent(billing_summary.this, MainActivity.class);
                 homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -103,5 +141,17 @@ public class billing_summary extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void clearUserSession() {
+        // Clear current user session
+        SharedPreferences sessionPrefs = getSharedPreferences("UserSession", MODE_PRIVATE);
+        sessionPrefs.edit().clear().apply();
+
+        // Note: Comment niyo kung gusto niyo nasasave yung chat history per account sa chatbot
+        if (currentUsername != null) {
+            SharedPreferences chatPrefs = getSharedPreferences("ChatBotPrefs", MODE_PRIVATE);
+            chatPrefs.edit().remove("chat_messages_" + currentUsername).apply();
+        }
     }
 }
