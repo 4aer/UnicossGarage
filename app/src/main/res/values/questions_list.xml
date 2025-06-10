@@ -3,7 +3,7 @@
     <string-array name="questions_list">
         <item>Select a security question</item>
         <item>What is your favorite color?</item>
-        <item>Whats is the name of your pet?</item>
+        <item>What is the name of your pet?</item>
         <item>What city were your born in?</item>
     </string-array>
 </resources>
